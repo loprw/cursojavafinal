@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Ejercicio Caballos: Formulario</title>
+		</head>
+		
+		<body>
+			<h1>Ejercicio Caballos: Formulario</h1>
+			<form th.action="@{/procesa_caballo}" th:object="${caballo}" method="get">
+				
+				<label>Nombre: <input type="text" th:field="*{nombre}"></label><br>
+				<label>Edad: <input type="number" th:field="*{edad}"></label><br>
+				<label>Velocidad máxima: <input type="number" th:field="*{velocidadMaxima}"></label><br>
+				
+				<button type="submit">Enviar</button>
+			</form>
+		</body>
+	</html>

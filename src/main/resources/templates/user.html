@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Gestión usuario</title>
+		</head>
+		
+		<body>
+			<h2>Información Usuario</h2>
+			<br>
+			<h3>Formulario</h3>
+			<form th:action="@{/procesar}" th:object="${usuario}" method="post">
+				<label>Nombre:<input type="text" th:field="*{nombre}"></label>
+				<br>
+				<label>Edad:<input type="number" th:field="*{edad}"></label>
+				<br>
+				<button type="submit" >Enviar</button>
+			</form>		
+		</body>
+	</html>
