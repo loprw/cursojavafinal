@@ -2,22 +2,43 @@ package es.cursojava.sprinboot.CursoJavaFinal.ejercicios.caballo;
 
 import org.springframework.stereotype.Component;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Component
+@Entity
+@Table(name = "TB_CABALLO")
 public class Caballo {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nombre;
 	private int edad;
 	private double velocidadMaxima;
-	private boolean activo;
+	private int numeroTriunfos;
+	private double experiencia;
 	
 	public Caballo() {
 	}
 
-	public Caballo(String nombre, int edad, double velocidadMaxima, boolean activo) {
+	public Caballo(String nombre, int edad, double velocidadMaxima, int numeroTriunfos, double experiencia) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.velocidadMaxima = velocidadMaxima;
-		this.activo = activo;
+		this.numeroTriunfos = numeroTriunfos;
+		this.experiencia = experiencia;
+	} 
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -44,11 +65,19 @@ public class Caballo {
 		this.velocidadMaxima = velocidadMaxima;
 	}
 
-	public boolean isActivo() {
-		return activo;
+	public int getNumeroTriunfos() {
+		return numeroTriunfos;
 	}
 
-	public void setActivo(boolean activo) {
-		this.activo = activo;
+	public void setNumeroTriunfos(int numeroTriunfos) {
+		this.numeroTriunfos = numeroTriunfos;
+	}
+
+	public double getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(double experiencia) {
+		this.experiencia = experiencia;
 	}
 }

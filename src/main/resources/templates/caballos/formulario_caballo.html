@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-	<html>
+	<html xmlns:th="http://www.thymeleaf.org">
 		<head>
 			<title>Ejercicio Caballos: Formulario</title>
 		</head>
 		
 		<body>
 			<h1>Ejercicio Caballos: Formulario</h1>
-			<form th.action="@{/procesa_caballo}" th:object="${caballo}" method="get">
+			<form th:action="@{/procesa_caballo}" th:object="${caballoAtr}" method="post">
 				
 				<label>Nombre: <input type="text" th:field="*{nombre}"></label><br>
 				<label>Edad: <input type="number" th:field="*{edad}"></label><br>
 				<label>Velocidad máxima: <input type="number" th:field="*{velocidadMaxima}"></label><br>
+				<label>Número Triunfos: <input type="number" th:field="*{numeroTriunfos}"></label><br>
+				<label>Experiencia: <input type="number" th:field="*{experiencia}"></label><br>
 				
 				<button type="submit">Enviar</button>
-			</form>
+			</form><br>
+			
+			<a th:href="@{/consulta_caballos}">Consulta el listado de todos los caballos registrados.</a>
 		</body>
 	</html>

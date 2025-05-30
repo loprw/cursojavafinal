@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+		<head>
+			<title>Tabla de Caballos</title>
+		</head>
+		
+		<body>
+		
+			<form th:action="filtra_caballos" method="post">
+				<label><input type="text" name="nombre_caballo" placeholder="Filtra por nombre"></label>
+				<button type="submit">Enviar</button>			
+			</form>
+			<button type="button" th:action="@{/consulta_caballos}" >Refrescar</button>
+		
+			<table>
+				<thead>
+					<tr>
+						<td>Nombre</td>
+						<td>Edad</td>
+						<td>Velocidad Máxima</td>
+						<td>Triunfos</td>
+						<td>Experiencia</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="caballo : ${caballos}">
+						<td><span th:text="${caballo.nombre}"></span></td>
+						<td><span th:text="${caballo.edad}"></span></td>
+						<td><span th:text="${caballo.velocidadMaxima}"></span></td>
+						<td><span th:text="${caballo.numeroTriunfos}"></span></td>
+						<td><span th:text="${caballo.experiencia}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</body>
+	</html>
